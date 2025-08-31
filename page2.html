@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  background-color: #000; 
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.dc-about-section {
+  padding: 50px;
+}
+
+.dc-about-title {
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+}
+
+.dc-about-title span {
+  color: #FF7300;
+}
+
+.dc-lines {
+  margin-top: 6px;
+}
+
+.dc-line1 {
+  width: 80px;
+  height: 4px; 
+  background-color: #FF7300;
+  margin-bottom: 6px;
+  border-radius: 2px;
+}
+
+.dc-line2 {
+  width: 50px;
+  height: 4px; 
+  background-color: #FF7300;
+  border-radius: 2px;
+}
+
+.dc-about-text {
+  margin-top: 60px;
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+}
+
+.dc-about-text span {
+  color: #FF7300;
+  font-weight: 700;
+}
+
+.dc-about-para {
+  margin-top: 25px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.8;
+  width: 100%;
+  color: #ddd;
+}
+
+/* Info Section Grid */
+.dc-info-section {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.dc-info-left p {
+  margin: 30px 0; 
+  font-size: 16px;
+  position: relative;
+}
+
+.dc-info-left span {
+  color: #fff;
+  font-weight: 600;
+}
+
+.dc-info-left .dc-value {
+  color: #ddd;
+  font-weight: 400;
+}
+
+.dc-info-left p::after {
+  content: '';
+  position: absolute;
+  height: 1px;
+  background-color: #535252; 
+  left: 0;
+  right: 40px;
+  bottom: -16px; 
+  display: block;
+}
+
+/* Buttons */
+.dc-buttons {
+  margin-top: 70px;
+  display: flex;
+  margin-left: 34px;
+  gap: 55px; 
+}
+
+.dc-btn {
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: 0.3s;
+  border: 1px solid transparent;
+}
+
+.dc-btn.dc-download {
+  background-color: #FF7300;
+  color: #000000;
+}
+
+.dc-btn.dc-download:hover {
+  background-color: transparent;
+  border: 1px solid #FF7300;
+  color: #FF7300;
+}
+
+/* Skills Section */
+.dc-skills-section {
+  margin-top: 40px;
+}
+
+.dc-skill {
+  margin-bottom: 45px;
+}
+
+.dc-skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dc-skill-header p {
+  font-size: 16px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.dc-skill-header span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.dc-skill-bar {
+  background: #2c2c2c;
+  border-radius: 6px;
+  overflow: hidden;
+  height: 11px;
+  position: relative;
+}
+
+.dc-skill-fill {
+  background: #FF7300;
+  height: 100%;
+  border-radius: 6px 0 0 6px;
+  width: 0;
+  transition: width 1.8s ease-in-out;
+}
+
+.dc-skill-fill.active {
+  width: var(--skill-width);
+}
+
+/* Education & Experience Section */
+.dc-edu-exp-section {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.dc-edu-exp-section h2 {
+  font-size: 26px;
+  margin-bottom: 25px;
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.dc-edu-box {
+  background: #111;
+  padding: 20px 20px 20px 30px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255, 115, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.dc-edu-box::before {
+  content: "";
+  position: absolute;
+  left: 15px; 
+  top: 8px; 
+  bottom: 15px; 
+  width: 3px;  
+  background: #FF7300;
+  border-radius: 2px;
+}
+
+.dc-edu-box .dc-year {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #969493;
+  margin-bottom: 38px;
+}
+
+.dc-edu-box h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.dc-edu-box p {
+  font-size: 14px;
+  color: #c1c0c0;
+  line-height: 1.6;
+}
+
+/* CSS animation */
+@keyframes dc-fadeUp {
+  0% {
+    opacity: 0.1;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dc-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+.dc-reveal.active {
+  animation: dc-fadeUp 1s ease forwards;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .dc-about-section { padding: 40px; }
+  .dc-about-title { font-size: 36px; }
+  .dc-about-text { font-size: 20px; }
+}
+
+@media (max-width: 992px) {
+  .dc-info-section { grid-template-columns: 1fr 1fr; }
+  .dc-edu-exp-section { grid-template-columns: 1fr; }
+  .dc-buttons { margin-left: 0; gap: 20px; justify-content: center; }
+}
+
+@media (max-width: 768px) {
+  .dc-about-section { padding: 30px 20px; }
+  .dc-about-title { font-size: 2rem; text-align: center; }
+  .dc-lines { justify-content: center; align-items: center; display: flex; flex-direction: column; }
+  .dc-about-text { text-align: center; font-size: 18px; }
+  .dc-about-para { text-align: center; font-size: 15px; line-height: 1.6; max-width: 90%; margin: 0 auto; }
+  .dc-info-section { grid-template-columns: 1fr; text-align: center; }
+  .dc-info-left p { font-size: 15px; word-break: break-word; }
+  .dc-info-left p::after { right: 0; }
+  .dc-buttons { flex-direction: row; justify-content: center; margin: 40px auto 0 auto; gap: 23px; }
+}
+
+@media (max-width: 480px) {
+  .dc-about-title { font-size: 1.8rem; }
+  .dc-about-text { font-size: 16px; }
+  .dc-about-para { font-size: 14px; max-width: 100%; }
+  .dc-info-left p { font-size: 14px; }
+  .dc-btn { padding: 10px 16px; font-size: 13px; }
+  .dc-buttons{ margin-top: 40px; }
+  .dc-skill-header p { font-size: 13px; }
+  .dc-skill-header span { font-size: 11px; }
+}
+</style>
+</head>
+<body>
+  <div class="dc-about-section dc-reveal">
+    <div class="dc-about-title">About <span>Me</span></div>
+    <div class="dc-lines">
+      <div class="dc-line1"></div>
+      <div class="dc-line2"></div>
+    </div>
+    <p class="dc-about-text">I'm Daksh Charyani a <span>Web Developer</span></p>
+    <p class="dc-about-para">
+       I’m a Web Developer passionate about building modern, responsive, and user-friendly websites. With a focus on clean code and creative design, I aim to deliver digital experiences that look great and work seamlessly across all devices.
+    </p>
+
+    <!-- Info Section -->
+    <div class="dc-info-section">
+      <div class="dc-info-left">
+        <p><span>Age :</span> <span class="dc-value"> 17</span></p>
+        <p><span>Email :</span> <span class="dc-value"> dakshdevsx@gmail.com</span></p>
+        <p><span>Phone :</span> <span class="dc-value"> 03029501614</span></p>
+        <div class="dc-buttons">
+          <a href="#" class="dc-btn dc-download">Download CV</a>
+          <a href="#" class="dc-btn dc-download">Hire Me</a>
+        </div>
+      </div>
+
+      <div class="dc-info-center">
+        <div class="dc-info-left">
+          <p><span>City :</span> <span class="dc-value"> Karachi</span></p>
+          <p><span>Fiver :</span> <span class="dc-value">https://www.fiverr.com/daksh_devsx</span></p>
+          <p><span>Freelance :</span> <span class="dc-value"> Available</span></p>
+        </div>
+      </div>
+
+      <!-- Skills -->
+      <div class="dc-info-right">
+        <div class="dc-skills-section dc-reveal">
+          <div class="dc-skill">
+            <div class="dc-skill-header"><p>Frontend Developer</p><span>85%</span></div>
+            <div class="dc-skill-bar"><div class="dc-skill-fill" style="--skill-width: 85%;"></div></div>
+          </div>
+          <div class="dc-skill">
+            <div class="dc-skill-header"><p>UI/UX Designer</p><span>80%</span></div>
+            <div class="dc-skill-bar"><div class="dc-skill-fill" style="--skill-width: 80%;"></div></div>
+          </div>
+          <div class="dc-skill">
+            <div class="dc-skill-header"><p>Responsive Web Designer</p><span>90%</span></div>
+            <div class="dc-skill-bar"><div class="dc-skill-fill" style="--skill-width: 85%;"></div></div>
+          </div>
+          <div class="dc-skill">
+            <div class="dc-skill-header"><p>Advance JavaScript</p><span>75%</span></div>
+            <div class="dc-skill-bar"><div class="dc-skill-fill" style="--skill-width: 75%;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Education & Experience -->
+    <div class="dc-edu-exp-section dc-reveal">
+      <div class="dc-education">
+        <h2>Education</h2>
+        <div class="dc-edu-box">
+          <span class="dc-year">2022 - 2023</span>
+          <h3>Matriculation</h3>
+          <p>I successfully completed my Matriculation (2022–2023) with 78.45% marks, reflecting my dedication and hard work throughout my studies.</p>
+        </div>
+        <div class="dc-edu-box">
+          <span class="dc-year">2024 - 2025</span>
+          <h3>Intermediate</h3>
+          <p>I completed my Intermediate (2024–2025) with 89.45% marks, achieving excellent academic results and showcasing consistency in my studies.</p>
+        </div>
+      </div>
+      <div class="dc-experience">
+        <h2>Experience</h2>
+        <div class="dc-edu-box">
+          <span class="dc-year">2024</span>
+          <h3>Frontend Developer</h3>
+          <p>In 2024, I dedicated my time to strengthening my frontend development skills. I explored UI/UX design, worked on creating responsive websites, and developed multiple projects that enhanced my practical knowledge and boosted my confidence as a developer</p>
+        </div>
+        <div class="dc-edu-box">
+          <span class="dc-year">2025 - Present</span>
+          <h3>Backend Developer</h3>
+          <p>In 2025, I began working on more frontend projects while also stepping into the world of backend development. I learned PHP and am currently progressing with MySQL, React.js, and Figma to further enhance my skills and move closer towards full-stack development.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  const dcReveals = document.querySelectorAll(".dc-reveal");
+  const dcSkillFills = document.querySelectorAll(".dc-skill-fill");
+
+  const dcRevealOnScroll = () => {
+    dcReveals.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        el.classList.add("active");
+        if (el.classList.contains("dc-skills-section")) {
+          dcSkillFills.forEach(fill => {
+            if (!fill.classList.contains("active")) {
+              fill.classList.add("active");
+            }
+          });
+        }
+      }
+    });
+  };
+
+  window.addEventListener("scroll", dcRevealOnScroll);
+  window.addEventListener("load", dcRevealOnScroll);
+</script>
+</body>
+</html>
